@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-light: #fffdf9;
+  --color-theme-white: #e8f0ff;
+  --color-theme-light-gray: #e6e8eb;
+  --color-theme-light-yellow: #fdf4db;
+  --color-theme-yellow: #f7c481;
+  --color-theme-green: #68f1a4;
+  --color-theme-red: #ee4b61;
+  --color-theme-black: #000;
+}
+
+@layer base {
+  * {
+    @apply p-0 m-0 box-border;
+  }
+  body {
+    @apply bg-theme-red;
+    background-image: radial-gradient(circle, black 1px, transparent 2px),
+      radial-gradient(circle, black 1px, transparent 2px);
+    background-size: 20px 20px;
+    background-position: 0 0, 9px 9px;
+  }
+}
