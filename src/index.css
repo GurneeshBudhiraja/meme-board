@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-theme-light: #fffdf9;
-  --color-theme-white: #e8f0ff;
-  --color-theme-light-gray: #e6e8eb;
-  --color-theme-light-yellow: #fdf4db;
-  --color-theme-yellow: #f7c481;
-  --color-theme-green: #68f1a4;
-  --color-theme-red: #ee4b61;
-  --color-theme-black: #000;
+  --color-windows98-gray: #c0c0c0;
+  --color-windows98-blue: #316ac5;
+  --color-windows98-light-gray: #d4d0c8;
+  --color-windows98-dark-gray: #a0a0a0;
+  --font-ms-sans-serif: "MS Sans Serif", sans-serif;
+}
+
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("./assets/fonts/microsoftsansserif.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
@@ -16,10 +21,86 @@
     @apply p-0 m-0 box-border;
   }
   body {
-    @apply bg-theme-red;
-    background-image: radial-gradient(circle, black 1px, transparent 2px),
-      radial-gradient(circle, black 1px, transparent 2px);
-    background-size: 20px 20px;
-    background-position: 0 0, 9px 9px;
+    @apply bg-teal-600;
+  }
+}
+
+@layer components {
+  .windows98-window {
+    background: var(--color-windows98-gray);
+    border: 2px outset var(--color-windows98-gray);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-ms-sans-serif);
+  }
+
+  .windows98-titlebar {
+    background: linear-gradient(90deg, #0a246a 0%, #a6caf0 100%);
+    color: white;
+    padding: 2px 4px;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-windows98-gray);
+    user-select: none;
+  }
+
+  .windows98-titlebar-icon {
+    width: 16px;
+    height: 16px;
+    background: var(--color-windows98-gray);
+    border: 1px inset var(--color-windows98-gray);
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: black;
+  }
+
+  .windows98-button {
+    background: var(--color-windows98-gray);
+    border: 1px outset var(--color-windows98-gray);
+    color: black;
+    font-size: 11px;
+    padding: 1px 6px;
+    cursor: pointer;
+    font-family: var(--font-ms-sans-serif);
+  }
+
+  .windows98-button:hover {
+    background: var(--color-windows98-light-gray);
+  }
+
+  .windows98-button:active {
+    border: 1px inset var(--color-windows98-gray);
+    background: var(--color-windows98-dark-gray);
+  }
+
+  .windows98-menu {
+    background: var(--color-windows98-gray);
+    border-bottom: 1px solid var(--color-windows98-gray);
+    padding: 2px 0;
+    font-size: 11px;
+    font-family: var(--font-ms-sans-serif);
+  }
+
+  .windows98-menu-item {
+    padding: 2px 8px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .windows98-menu-item:hover {
+    background: var(--color-windows98-blue);
+    color: white;
+  }
+
+  .windows98-content {
+    background: white;
+    border: 1px inset var(--color-windows98-gray);
+    padding: 0;
+    overflow: hidden;
   }
 }
