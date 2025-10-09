@@ -12,6 +12,7 @@ export default defineConfig([
     rules: {
       "@typescript-eslint/no-empty-object-type": "off",
       "react-refresh/only-export-components": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
     files: ["**/*.{ts,tsx}"],
     extends: [

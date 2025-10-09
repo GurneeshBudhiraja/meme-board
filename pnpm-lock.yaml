@@ -8,6 +8,9 @@ dependencies:
   '@tailwindcss/vite':
     specifier: ^4.1.14
     version: 4.1.14(vite@7.1.7)
+  appwrite:
+    specifier: ^21.0.0
+    version: 21.0.0
   react:
     specifier: ^19.1.1
     version: 19.1.1
@@ -2907,6 +2910,10 @@ packages:
     dependencies:
       color-convert: 2.0.1
     dev: true
+
+  /appwrite@21.0.0:
+    resolution: {integrity: sha512-Ls0QD1i1dFx9Dzvg0Rgf+jWVSDsw9Qb02dr3EPAS0JVJT1AaShpuAYS36yJihuJqsgoqmPfqmLy/RHPVaUuZJQ==}
+    dev: false
 
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}

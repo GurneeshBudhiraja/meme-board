@@ -5,6 +5,8 @@
   --color-windows98-blue: #316ac5;
   --color-windows98-light-gray: #d4d0c8;
   --color-windows98-dark-gray: #a0a0a0;
+  --color-theme-light: #e8f0ff;
+  --color-theme-yellow: #fdf4db;
   --font-ms-sans-serif: "MS Sans Serif", sans-serif;
 }
 
@@ -18,7 +20,7 @@
 
 @layer base {
   * {
-    @apply p-0 m-0 box-border;
+    @apply p-0 m-0 box-border select-none;
   }
   body {
     @apply bg-teal-600;
@@ -36,7 +38,7 @@
   .windows98-titlebar {
     background: linear-gradient(90deg, #0a246a 0%, #a6caf0 100%);
     color: white;
-    padding: 2px 4px;
+    padding: 4px 10px;
     font-size: 11px;
     font-weight: bold;
     display: flex;
@@ -98,9 +100,51 @@
   }
 
   .windows98-content {
-    background: white;
+    background: var(--color-theme-light);
     border: 1px inset var(--color-windows98-gray);
     padding: 0;
     overflow: hidden;
+  }
+
+  .windows98-menu-item-container {
+    @apply relative inline-block;
+  }
+
+  .windows98-menu-item {
+    @apply px-3 py-[3px] text-[13px] border border-transparent rounded-sm transition-all duration-100;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px #a0a0a0;
+  }
+
+  .windows98-menu-item:hover {
+    @apply bg-gray-200 border-gray-400 text-black;
+  }
+
+  .windows98-submenu {
+    @apply absolute left-0 top-full hidden group-hover:block mt-[1px] min-w-[120px] rounded-sm bg-gray-100 border border-gray-400 z-[9999];
+    box-shadow: 1px 1px 0 #888, inset 1px 1px #fff, inset -1px -1px #ccc;
+  }
+
+  .windows98-submenu-item {
+    @apply px-4 py-[5px] text-[12px] cursor-pointer hover:bg-blue-600 hover:text-white transition-all duration-100;
+  }
+}
+
+@layer utilities {
+  .tl-background {
+    background-color: var(--color-theme-light) !important;
+  }
+
+  .screen-overlay {
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.06),
+        rgba(0, 255, 0, 0.02),
+        rgba(0, 0, 255, 0.06)
+      );
+    background-size: 100% 2px, 3px 100%;
   }
 }

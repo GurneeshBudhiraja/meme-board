@@ -8,6 +8,10 @@ interface ViteTypeOptions {
 
 interface ImportMetaEnv {
   readonly VITE_TLDRAW_KEY: string;
+  readonly VITE_TLDRAW_KEY: string;
+  readonly VITE_APPWRITE_PROJECT_ID: string;
+  readonly VITE_APPWRITE_PROJECT_NAME: string;
+  readonly VITE_APPWRITE_ENDPOINT: string;
 }
 
 interface ImportMeta {

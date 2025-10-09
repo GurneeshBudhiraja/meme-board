@@ -1,21 +1,22 @@
 import {
   createContext,
-  useState,
-  type ReactNode,
   type Dispatch,
+  type ReactNode,
   type SetStateAction,
   useContext,
+  useState,
 } from "react";
+import type { Editor } from "tldraw";
 
 // Application context type
 export type AppCtxType = {
-  isLoggedIn: boolean;
-  setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
+  editor: Editor | null;
+  setEditor: Dispatch<SetStateAction<Editor | null>>;
 };
 
 export const ApplicationContext = createContext<AppCtxType>({
-  isLoggedIn: false,
-  setIsLoggedIn: () => null,
+  editor: null,
+  setEditor: () => {},
 });
 
 export default function ApplicationContextProvider({
@@ -23,9 +24,9 @@ export default function ApplicationContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [editor, setEditor] = useState<Editor | null>(null);
   return (
-    <ApplicationContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <ApplicationContext.Provider value={{ editor, setEditor }}>
       {children}
     </ApplicationContext.Provider>
   );

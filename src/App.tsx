@@ -1,25 +1,26 @@
-import { Tldraw } from "tldraw";
-import { TLDRAW_LICENSE_KEY } from "./env-export";
-import { TLDRAW_OPTIONS } from "./constants/tldraw.constant";
-import Header from "./components/Header";
+import { useState } from "react";
+import MenuOptions from "./components/main-menu-options";
+import TldrawWrapper from "./components/tldraw-wrapper";
+import Header from "./components/header";
+import LoadingMonkey from "./assets/images/loading-monkey.gif";
 
 function App() {
+  const [isTldrawMounted, setIsTldrawMounted] = useState(false);
   return (
-    <div className="h-screen w-screen bg-teal-600 flex items-center justify-center font-sans">
-      <div className="windows98-window w-[95%] h-[95%] flex flex-col">
-        <Header />
-        <div className="windows98-menu">
-          <div className="windows98-menu-item">File</div>
-          <div className="windows98-menu-item">Edit</div>
-          <div className="windows98-menu-item">View</div>
-          <div className="windows98-menu-item">Help</div>
-        </div>
+    <div className="h-screen w-screen bg-teal-600 flex items-center justify-center font-sans relative">
+      {/* old screen */}
+      <div className="pointer-events-none fixed inset-0 z-50 screen-overlay" />
 
+      <div className="windows98-window w-[95%] h-[95%] flex flex-col relative">
+        <Header />
+        <MenuOptions />
         <div className="windows98-content flex-1 overflow-hidden relative">
-          <Tldraw
-            options={TLDRAW_OPTIONS}
-            licenseKey={TLDRAW_LICENSE_KEY ?? ""}
-          />
+          {!isTldrawMounted && (
+            <div className="flex justify-center items-center h-full w-full">
+              <img src={LoadingMonkey} alt="" className="object-contain" />
+            </div>
+          )}
+          <TldrawWrapper setIsTldrawMounted={setIsTldrawMounted} />
         </div>
       </div>
     </div>
