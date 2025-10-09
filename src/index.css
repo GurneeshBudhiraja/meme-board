@@ -22,12 +22,14 @@
   * {
     @apply p-0 m-0 box-border select-none;
   }
+
   body {
     @apply bg-teal-600;
   }
 }
 
 @layer components {
+  /* Windows 98 Window */
   .windows98-window {
     background: var(--color-windows98-gray);
     border: 2px outset var(--color-windows98-gray);
@@ -61,6 +63,7 @@
     color: black;
   }
 
+  /* Buttons */
   .windows98-button {
     background: var(--color-windows98-gray);
     border: 1px outset var(--color-windows98-gray);
@@ -69,6 +72,7 @@
     padding: 1px 6px;
     cursor: pointer;
     font-family: var(--font-ms-sans-serif);
+    transition: all 0.1s;
   }
 
   .windows98-button:hover {
@@ -81,51 +85,26 @@
   }
 
   .windows98-menu {
-    background: var(--color-windows98-gray);
-    border-bottom: 1px solid var(--color-windows98-gray);
-    padding: 2px 0;
-    font-size: 11px;
-    font-family: var(--font-ms-sans-serif);
+    @apply absolute top-0 left-0 flex bg-windows98-gray w-full gap-px;
   }
 
   .windows98-menu-item {
-    padding: 2px 8px;
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .windows98-menu-item:hover {
-    background: var(--color-windows98-blue);
-    color: white;
-  }
-
-  .windows98-content {
-    background: var(--color-theme-light);
-    border: 1px inset var(--color-windows98-gray);
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .windows98-menu-item-container {
-    @apply relative inline-block;
-  }
-
-  .windows98-menu-item {
-    @apply px-3 py-[3px] text-[13px] border border-transparent rounded-sm transition-all duration-100;
+    @apply px-3 py-0.5 text-[13px] border border-black transition-all duration-100 bg-white w-fit;
     box-shadow: inset 1px 1px #fff, inset -1px -1px #a0a0a0;
+    cursor: pointer;
   }
 
   .windows98-menu-item:hover {
-    @apply bg-gray-200 border-gray-400 text-black;
+    @apply bg-windows98-light-gray border-windows98-gray text-black;
   }
 
   .windows98-submenu {
-    @apply absolute left-0 top-full hidden group-hover:block mt-[1px] min-w-[120px] rounded-sm bg-gray-100 border border-gray-400 z-[9999];
+    @apply absolute top-6 mt-0.5 hidden group-hover:flex bg-windows98-gray border border-black gap-px flex-col w-fit min-w-full;
     box-shadow: 1px 1px 0 #888, inset 1px 1px #fff, inset -1px -1px #ccc;
   }
 
   .windows98-submenu-item {
-    @apply px-4 py-[5px] text-[12px] cursor-pointer hover:bg-blue-600 hover:text-white transition-all duration-100;
+    @apply px-3 py-[5px] text-[12px] cursor-pointer hover:bg-blue-600 hover:text-white transition-all duration-100 text-start;
   }
 }
 

@@ -1,8 +1,7 @@
 import { useState } from "react";
-import MenuOptions from "./components/main-menu-options";
 import TldrawWrapper from "./components/tldraw-wrapper";
-import Header from "./components/header";
 import LoadingMonkey from "./assets/images/loading-monkey.gif";
+import Header from "./components/header";
 
 function App() {
   const [isTldrawMounted, setIsTldrawMounted] = useState(false);
@@ -13,7 +12,6 @@ function App() {
 
       <div className="windows98-window w-[95%] h-[95%] flex flex-col relative">
         <Header />
-        <MenuOptions />
         <div className="windows98-content flex-1 overflow-hidden relative">
           {!isTldrawMounted && (
             <div className="flex justify-center items-center h-full w-full">

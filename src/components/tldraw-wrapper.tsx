@@ -6,6 +6,7 @@ import {
 import { TLDRAW_LICENSE_KEY } from "../env-export";
 import type { Dispatch, SetStateAction } from "react";
 import { useApplicationContext } from "../provider/ContextProvider";
+import MenuOptions from "./main-menu";
 
 export type TldrawWrapperProps = {
   setIsTldrawMounted: Dispatch<SetStateAction<boolean>>;
@@ -21,10 +22,11 @@ function TldrawWrapper({ setIsTldrawMounted }: TldrawWrapperProps) {
       components={{ ...TLDRAW_COMPONENTS }}
       onMount={(editor: Editor) => {
         setIsTldrawMounted(true);
-        // Update the application context with the editor instance
         setEditor(editor);
       }}
-    />
+    >
+      <MenuOptions />
+    </Tldraw>
   );
 }
 

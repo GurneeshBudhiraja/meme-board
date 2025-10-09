@@ -10,5 +10,6 @@ export const TLDRAW_OPTIONS: Partial<TldrawOptions> | undefined = {
 
 
 export const TLDRAW_COMPONENTS: TLComponents = {
+  // TODO: uncomment in prod
   MainMenu: null,
 };
